@@ -160,3 +160,22 @@ form.addEventListener("submit", async (e) => {
     status.textContent = "Не удалось отправить заявку. Позвоните: +7 707 465-27-26.";
   }
 });
+
+// отзывы едут сами: дублируем карточки, чтобы лента замыкалась без шва
+$$(".rv__row").forEach((row) => [...row.children].forEach((li) => {
+  const copy = li.cloneNode(true);
+  copy.setAttribute("aria-hidden", "true");
+  row.append(copy);
+}));
+
+// позвоночник-навигатор: каждый позвонок ведёт к разделу, изгиб выпрямляется по мере прокрутки
+const spine = $("#spine");
+const parts = [["top", "Начало"], ["services", "Услуги"], ["course", "Курс"], ["help", "С чем приходят"], ["center", "Центр"], ["specialist", "Специалист"],
+  ["history", "Путь центра"], ["steps", "Приём"], ["video", "Видео"], ["reviews", "Отзывы"], ["faq", "Вопросы"], ["booking", "Запись"], ["contacts", "Контакты"]];
+spine.innerHTML = parts.map(([id, label], i) =>
+  `<a href="#${id}" style="--off:${(Math.sin(i / (parts.length - 1) * Math.PI * 2) * 13).toFixed(1)}"><span>${label}</span></a>`).join("");
+const vertebrae = $$("a", spine);
+const sio = new IntersectionObserver((es) => es.forEach((e) => {
+  if (e.isIntersecting) vertebrae.forEach((a) => a.classList.toggle("is-on", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+parts.forEach(([id]) => sio.observe(document.getElementById(id)));

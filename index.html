@@ -17,7 +17,7 @@
 <link rel="preload" href="fonts/onest-cyr.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="images/reception.webp" as="image" fetchpriority="high">
 <link rel="stylesheet" href="style.css">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");try{if(sessionStorage.getItem("seen"))document.documentElement.classList.add("no-intro");sessionStorage.setItem("seen","1")}catch(e){}</script>
 
 <script type="application/ld+json">
 {
@@ -43,7 +43,9 @@
 </head>
 <body>
 <a class="skip" href="#main">Перейти к содержимому</a>
+<div class="intro" aria-hidden="true"><img src="images/logo.jpg" alt="" width="150" height="150"></div>
 <div class="progress" aria-hidden="true"></div>
+<nav class="spine" id="spine" aria-label="Разделы страницы"></nav>
 <div id="top-sentinel" aria-hidden="true"></div>
 
 <header class="header" id="header">
@@ -146,6 +148,37 @@
   </div>
 </section>
 
+<section class="sec sec--flush" id="course">
+  <div class="wrap">
+    <h2 data-reveal>Как устроен курс</h2>
+    <p class="sec__sub" data-reveal>Цифры взяты из отзывов клиентов. Ваш план составит специалист после диагностики.</p>
+    <ul class="bento">
+      <li class="bento__a" data-reveal><strong>1 час</strong><span>примерно длится один сеанс. В него часто входят и массаж, и физиопроцедуры.</span></li>
+      <li class="bento__b" data-reveal><strong>5-7</strong><span>сеансов в курсе называют авторы отзывов</span></li>
+      <li class="bento__c" data-reveal data-clip><img src="images/gym.webp" alt="Блочные тренажёры в зале ЛФК" width="800" height="1422" loading="lazy"></li>
+      <li class="bento__d" data-reveal><strong>2 раза</strong><span>в год, весной и осенью, приходит на курс одна из постоянных клиенток</span></li>
+      <li class="bento__e" data-reveal><strong>с 2021</strong><span>года клиенты пишут отзывы о центре в 2ГИС. За 2026 год их уже 24.</span></li>
+    </ul>
+
+    <div class="feature">
+      <div class="feature__text">
+        <h3 data-reveal>Высокоинтенсивная лазеротерапия</h3>
+      </div>
+      <div class="feature__text">
+        <p data-reveal>По описанию центра, это безболезненное воздействие лазером на ткани. Метод применяют при острой и хронической боли, остеохондрозе, грыжах дисков, растяжении связок, артрозе колена, артритах, туннельном синдроме запястья.</p>
+        <ul class="ticks">
+          <li data-reveal>Обезболивание</li>
+          <li data-reveal>Снятие воспаления</li>
+          <li data-reveal>Уменьшение отёка</li>
+          <li data-reveal>Улучшение кровообращения</li>
+          <li data-reveal>Ускорение заживления тканей</li>
+        </ul>
+        <p class="disclaimer" data-reveal>Эффекты перечислены со слов центра. Есть противопоказания, процедуру назначают только после осмотра.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec sec--tint" id="help">
   <div class="wrap help">
     <h2 data-reveal>С чем сюда приходят</h2>
@@ -203,7 +236,19 @@
   </div>
 </section>
 
-<section class="sec" id="steps">
+<section class="sec" id="history">
+  <div class="wrap">
+    <h2 data-reveal>Путь центра</h2>
+    <ol class="tl">
+      <li data-reveal><strong>2021</strong><h3>Первые отзывы</h3><p>В 2ГИС появляются первые отзывы о работе специалиста.</p></li>
+      <li data-reveal><strong>2024</strong><h3>Команда</h3><p>За год клиенты оставили 20 отзывов. В них начинают упоминать других специалистов центра.</p></li>
+      <li data-reveal><strong>Июнь 2026</strong><h3>Новый центр</h3><p>Переезд в ЖК Esil city на Набережной, 23. Появился зал ЛФК с тренажёрами.</p></li>
+      <li data-reveal><strong>Осень 2026</strong><h3>Рейтинг 4,9</h3><p>В 2ГИС 66 отзывов и 94 оценки, в Instagram 17,4 тысячи подписчиков.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--flush" id="steps">
   <div class="wrap steps">
     <h2 data-reveal>Как проходит приём</h2>
     <ol class="steps__list">
@@ -212,6 +257,15 @@
       <li data-reveal><h3>Процедуры</h3><p>Специалист проводит вас по нужным кабинетам. По отзывам, сеанс занимает около часа.</p></li>
       <li data-reveal><h3>Рекомендации</h3><p>После приёма объяснят, что делать дальше и нужен ли курс.</p></li>
     </ol>
+    <div class="memo" data-reveal>
+      <h3>Что взять с собой</h3>
+      <ul class="ticks ticks--row">
+        <li data-reveal>Удобную одежду</li>
+        <li data-reveal>Сменную обувь или тапочки: так советуют клиенты, процедуры идут в разных кабинетах</li>
+        <li data-reveal>Снимки МРТ, рентгена и выписки, если они есть</li>
+        <li data-reveal>Список лекарств, которые вы принимаете</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -304,6 +358,7 @@
       <details data-reveal><summary>Что такое хиджама?</summary><div><p>Традиционная методика с вакуумными банками. Относится к альтернативной медицине и подходит не всем. Противопоказания специалист уточняет перед процедурой.</p></div></details>
       <details data-reveal><summary>Сколько стоит приём?</summary><div><p>Стоимость зависит от вида и количества процедур. Актуальные цены сообщат при записи.</p></div></details>
       <details data-reveal><summary>Как можно оплатить?</summary><div><p>Банковской картой, наличными или по QR-коду.</p></div></details>
+      <details data-reveal><summary>Есть ли подарочные сертификаты?</summary><div><p>По отзывам клиентов, в центре можно купить сертификат в подарок. Условия и номинал уточняйте при звонке.</p></div></details>
       <details data-reveal><summary>Где находится центр?</summary><div><p>Петропавловск, улица Набережная, 23, ЖК Esil city. Вход с улицы, над дверью вывеска Allabergen Altaevich. Рядом есть парковки.</p></div></details>
     </div>
   </div>
@@ -364,6 +419,7 @@
         <p data-reveal><strong>Instagram</strong><a href="https://www.instagram.com/allabergen_altaevich/" target="_blank" rel="noopener">@allabergen_altaevich</a></p>
         <p data-reveal><strong>График</strong>По предварительной записи, начало приёма в 10:00. <span class="placeholder-inline">Точный график по дням нужно уточнить.</span></p>
         <p data-reveal><strong>Оплата</strong>Картой, наличными, по QR-коду</p>
+        <p data-reveal><strong>Как добраться</strong>Остановка «Магазин Росинка» в 250 метрах, около 3 минут пешком. Рядом три парковки. Вход с улицы, над дверью вывеска центра.</p>
       </address>
       <a class="link-arrow" data-reveal href="https://2gis.kz/petropavlovsk/firm/70000001054442229" target="_blank" rel="noopener">Открыть в 2ГИС <i aria-hidden="true">→</i></a>
     </div>
