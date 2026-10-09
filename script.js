@@ -83,6 +83,13 @@ gal.addEventListener("click", (e) => {
 });
 lightbox.addEventListener("click", (e) => e.target.tagName !== "IMG" && lightbox.close());
 
+// галерея: когда она появилась на экране, открываем сразу все фото, чтобы при листании не было пустых мест
+new IntersectionObserver(([e], o) => {
+  if (!e.isIntersecting) return;
+  $$("figure", gal).forEach((f) => f.classList.add("in"));
+  o.disconnect();
+}, { threshold: .15 }).observe(gal);
+
 // нижняя панель на телефоне появляется после первого экрана
 const mbar = $("#mbar");
 new IntersectionObserver(([e]) => mbar.classList.toggle("show", !e.isIntersecting)).observe($(".hero__btns"));
