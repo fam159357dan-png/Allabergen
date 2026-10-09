@@ -130,3 +130,32 @@ address p{margin:0 0 16px}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* v2 */
+.logo img{border-radius:10px;flex:none}
+.btn--wa{background:#128c4a;border-color:#128c4a}
+.btn--wa:hover{background:#0d6e3a;border-color:#0d6e3a}
+.hero__btns .btn{flex:0 1 auto}
+.facts{list-style:none;display:flex;flex-wrap:wrap;gap:12px 28px;margin:0 0 14px;padding:0}
+.facts li{display:flex;flex-direction:column}
+.facts strong{font:700 1.6rem/1.1 Georgia,serif;color:var(--teal-d)}
+.facts span{font-size:.85rem;color:var(--muted)}
+.hero__brand{background:#0d1b1c;color:#e8f3f1;border-radius:24px;padding:36px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero__brand img{width:150px;height:150px;border-radius:50%;margin-bottom:8px}
+.hero__brand strong{font:700 1.25rem/1.3 Georgia,serif}
+.hero__brand span{color:#a9c7c2;font-size:.95rem}
+.hero__brand a{color:#fff;margin-top:6px}
+.card__tag{margin-top:12px!important;font-size:.82rem;font-weight:600;color:var(--teal-d)!important}
+.chips{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 18px}
+.spec{display:grid;grid-template-columns:180px 1fr;gap:36px;align-items:start}
+.spec__logo img{width:160px;height:160px;border-radius:50%}
+.spec__list{padding-left:20px;color:var(--muted)}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:24px}
+.vid{aspect-ratio:9/16;max-height:560px;background:#0d1b1c;border-radius:var(--r);overflow:hidden;display:grid;place-items:center}
+.vid button{background:#fff;border:0;border-radius:999px;padding:12px 20px;font:600 .95rem inherit;color:var(--teal-d);cursor:pointer;min-height:44px}
+.vid iframe{width:100%;height:100%;border:0;background:#fff}
+select{width:100%;min-height:48px;padding:10px 14px;font:inherit;border:1.5px solid #9db8b3;border-radius:12px;background:#fff;color:var(--ink)}
+select:focus-visible{outline:3px solid #f2a900;outline-offset:2px}
+@media (max-width:1020px){.spec{grid-template-columns:1fr}.spec__logo img{width:110px;height:110px}}
+@media (max-width:1020px){.mbar{grid-template-columns:1fr 1fr 1fr}.mbar .btn{padding:10px 8px;font-size:.95rem}}

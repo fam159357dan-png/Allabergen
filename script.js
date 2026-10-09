@@ -1,6 +1,7 @@
 // Точка подключения формы: вставьте адрес сервиса приёма заявок (например, Formspree или свой сервер).
-// Пока адрес пуст — заявки НИКУДА не отправляются, посетителю показывается просьба позвонить.
+// Пока адрес пуст, форма открывает WhatsApp центра с готовым сообщением (посетитель сам нажимает «Отправить»).
 const FORM_ENDPOINT = "";
+const WA = "77074652726";
 
 const $ = (s) => document.querySelector(s);
 
@@ -36,13 +37,16 @@ form.addEventListener("submit", async (e) => {
   if (!ok) { form.querySelector("[aria-invalid=true]").focus(); return; }
 
   if (!FORM_ENDPOINT) {
-    status.classList.add("bad");
-    status.textContent = "Приём заявок с сайта пока не подключён. Пожалуйста, позвоните: +7 707 465-27-26.";
+    const text = `Здравствуйте! Хочу записаться. Имя: ${F.name.value.trim()}. Телефон: ${F.phone.value.trim()}.` +
+      (F.service.value ? ` Интересует: ${F.service.value}.` : "") + (F.time.value.trim() ? ` Удобное время: ${F.time.value.trim()}.` : "");
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    status.classList.add("ok");
+    status.textContent = "Открыли WhatsApp с готовым сообщением — нажмите «Отправить» там. Или позвоните: +7 707 465-27-26.";
     return;
   }
   try {
     const r = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ name: F.name.value.trim(), phone: F.phone.value.trim(), time: F.time.value.trim() }) });
+      body: JSON.stringify({ name: F.name.value.trim(), phone: F.phone.value.trim(), service: F.service.value, time: F.time.value.trim() }) });
     if (!r.ok) throw new Error(r.status);
     form.reset();
     status.classList.add("ok");
@@ -52,3 +56,10 @@ form.addEventListener("submit", async (e) => {
     status.textContent = "Не удалось отправить заявку. Позвоните: +7 707 465-27-26.";
   }
 });
+
+// видео Instagram: подгружаем только по клику
+document.querySelectorAll(".vid").forEach((v) => v.querySelector("button").addEventListener("click", () => {
+  const f = document.createElement("iframe");
+  f.src = v.dataset.src; f.title = "Видео из Instagram"; f.allowFullscreen = true; f.loading = "lazy";
+  v.replaceChildren(f);
+}));
