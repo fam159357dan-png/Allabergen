@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# ЗАМЕНИТЬ адрес на реальный домен
+Sitemap: https://allabergen.vercel.app/sitemap.xml
