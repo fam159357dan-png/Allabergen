@@ -87,12 +87,43 @@ lightbox.addEventListener("click", (e) => e.target.tagName !== "IMG" && lightbox
 const mbar = $("#mbar");
 new IntersectionObserver(([e]) => mbar.classList.toggle("show", !e.isIntersecting)).observe($(".hero__btns"));
 
-// видео Instagram: подгружаем только по клику
-$$(".vid").forEach((v) => $("button", v).addEventListener("click", () => {
-  const f = document.createElement("iframe");
-  f.src = v.dataset.src; f.title = "Видео из Instagram"; f.allowFullscreen = true; f.loading = "lazy";
-  v.replaceChildren(f);
-}));
+// заголовки разделов и надпись в подвале: слова и буквы выезжают по очереди
+$$("h2[data-reveal]").forEach((h) => { h.innerHTML = h.textContent.trim().split(/\s+/).map((w, i) => `<span class="w"><span style="--k:${i}">${w}</span></span>`).join(" "); });
+const mark = $("#mark");
+mark.innerHTML = [...mark.textContent].map((c, i) => `<span style="--k:${i}">${c === " " ? "&nbsp;" : c}</span>`).join("");
+io.observe(mark);
+
+// видео: карточка с пометкой data-ready показывает свой плеер с файлом из папки videos/.
+// Без пометки карточка остаётся ссылкой на ролик в Instagram.
+$$(".vcard[data-ready]").forEach((card) => {
+  const link = $(".vcard__media", card), v = document.createElement("video");
+  Object.assign(v, { src: card.dataset.file, poster: $("img", link).src, controls: true, playsInline: true, preload: "none", className: "vcard__media" });
+  link.replaceWith(v);
+});
+
+// только для мыши: кнопки тянутся к курсору, фото первого экрана наклоняется, подсветка следует за указателем
+if (!calm && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  $$(".btn--lg, .header__cta").forEach((b) => {
+    b.addEventListener("pointermove", (e) => {
+      const r = b.getBoundingClientRect();
+      b.style.setProperty("--mx", ((e.clientX - r.left) / r.width - .5) * 14 + "px");
+      b.style.setProperty("--my", ((e.clientY - r.top) / r.height - .5) * 10 + "px");
+    });
+    b.addEventListener("pointerleave", () => { b.style.setProperty("--mx", "0px"); b.style.setProperty("--my", "0px"); });
+  });
+  const photo = $(".hero__photo");
+  photo.addEventListener("pointermove", (e) => {
+    const r = photo.getBoundingClientRect();
+    photo.style.setProperty("--ry", ((e.clientX - r.left) / r.width - .5) * 7 + "deg");
+    photo.style.setProperty("--rx", (.5 - (e.clientY - r.top) / r.height) * 7 + "deg");
+  });
+  photo.addEventListener("pointerleave", () => { photo.style.setProperty("--rx", "0deg"); photo.style.setProperty("--ry", "0deg"); });
+  $$(".spec__card, .form").forEach((el) => el.addEventListener("pointermove", (e) => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--sx", e.clientX - r.left + "px");
+    el.style.setProperty("--sy", e.clientY - r.top + "px");
+  }));
+}
 
 // форма
 const form = $("#form"), status = $("#status"), F = form.elements;

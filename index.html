@@ -99,8 +99,8 @@
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
-    <span>Мануальная терапия</span><span>Массаж</span><span>ЛФК</span><span>Магнитотерапия</span><span>УВТ</span><span>Иглоукалывание</span><span>Хиджама</span>
-    <span>Мануальная терапия</span><span>Массаж</span><span>ЛФК</span><span>Магнитотерапия</span><span>УВТ</span><span>Иглоукалывание</span><span>Хиджама</span>
+    <span>Мануальная терапия</span><span>Массаж</span><span>ЛФК</span><span>Магнитотерапия</span><span>УВТ</span><span>Лазеротерапия</span><span>Иглоукалывание</span><span>Хиджама</span>
+    <span>Мануальная терапия</span><span>Массаж</span><span>ЛФК</span><span>Магнитотерапия</span><span>УВТ</span><span>Лазеротерапия</span><span>Иглоукалывание</span><span>Хиджама</span>
   </div>
 </div>
 
@@ -109,7 +109,7 @@
     <h2 data-reveal>Что делают в центре</h2>
     <p class="sec__sub" data-reveal>Программу подбирает специалист после осмотра. Часто за один визит сочетают несколько процедур.</p>
     <div class="svc">
-      <div class="svc__media" aria-hidden="true">
+      <div class="svc__media" aria-hidden="true" data-reveal data-clip>
         <img class="is-on" data-key="hall" src="images/hall2.webp" alt="" width="800" height="1066" loading="lazy">
         <img data-key="gym" src="images/gym.webp" alt="" width="800" height="1422" loading="lazy">
         <img data-key="device" src="images/device.webp" alt="" width="800" height="1413" loading="lazy">
@@ -126,11 +126,11 @@
         </li>
         <li data-reveal data-img="gym" tabindex="0">
           <h3>ЛФК</h3>
-          <p>Лечебная физкультура в зале с блочными тренажёрами. Клиенты пишут, что направление появилось недавно.</p>
+          <p>Лечебная физкультура в зале с блочными тренажёрами. По описанию центра, её назначают при болях в спине и шее, после травм и операций, при нарушениях осанки.</p>
         </li>
         <li data-reveal data-img="device" tabindex="0">
           <h3>Физиопроцедуры</h3>
-          <p>Магнитотерапия и ударно-волновая терапия (УВТ) на аппаратах центра.</p>
+          <p>Магнитотерапия, ударно-волновая терапия (УВТ) и высокоинтенсивная лазеротерапия на аппаратах центра.</p>
         </li>
         <li data-reveal data-img="hall" tabindex="0">
           <h3>Иглоукалывание</h3>
@@ -208,7 +208,7 @@
     <h2 data-reveal>Как проходит приём</h2>
     <ol class="steps__list">
       <li data-reveal><h3>Запись</h3><p>Звонок, WhatsApp или форма на сайте. Подберём удобное время.</p></li>
-      <li data-reveal><h3>Осмотр и беседа</h3><p>Расскажите, что беспокоит. Если есть снимки МРТ или рентгена, возьмите их с собой.</p></li>
+      <li data-reveal><h3>Диагностика</h3><p>Перед процедурами проводят неврологические и ортопедические тесты, чтобы найти причину боли. Снимки МРТ или рентгена возьмите с собой.</p></li>
       <li data-reveal><h3>Процедуры</h3><p>Специалист проводит вас по нужным кабинетам. По отзывам, сеанс занимает около часа.</p></li>
       <li data-reveal><h3>Рекомендации</h3><p>После приёма объяснят, что делать дальше и нужен ли курс.</p></li>
     </ol>
@@ -217,12 +217,34 @@
 
 <section class="sec sec--tint" id="video">
   <div class="wrap">
-    <h2 data-reveal>Видео из Instagram</h2>
-    <p class="sec__sub" data-reveal>Ролики центра. Видео загружается с серверов Instagram только после нажатия.</p>
+    <h2 data-reveal>Видео центра</h2>
+    <p class="sec__sub" data-reveal>Короткие ролики о центре и процедурах.</p>
+    <!-- Свой плеер: положите файл из data-file в папку videos/ и добавьте карточке атрибут data-ready. Без него карточка ведёт на ролик в Instagram. -->
     <div class="videos">
-      <div class="vid" data-reveal data-src="https://www.instagram.com/reel/DeKaZwBoCtW/embed"><button type="button" aria-label="Показать видео от 6 октября"><i aria-hidden="true"></i><span>6 октября</span></button></div>
-      <div class="vid" data-reveal data-src="https://www.instagram.com/reel/Dc3xw0moCnw/embed"><button type="button" aria-label="Показать видео от 4 сентября"><i aria-hidden="true"></i><span>4 сентября</span></button></div>
-      <div class="vid" data-reveal data-src="https://www.instagram.com/reel/Da27R1To7kH/embed"><button type="button" aria-label="Показать видео от 16 июля"><i aria-hidden="true"></i><span>16 июля</span></button></div>
+      <article class="vcard" data-reveal data-file="videos/center.mp4">
+        <a class="vcard__media" href="https://www.instagram.com/reel/DZnTrMVoom4/" target="_blank" rel="noopener" aria-label="Смотреть ролик о новом центре">
+          <img src="images/v-center.webp" alt="Ресепшен нового центра с логотипом" width="361" height="640" loading="lazy">
+          <span class="vcard__play" aria-hidden="true"></span>
+        </a>
+        <h3>Новый центр на Набережной</h3>
+        <p>С июня 2026 года центр принимает по новому адресу: ул. Набережная, 23.</p>
+      </article>
+      <article class="vcard" data-reveal data-file="videos/lfk.mp4">
+        <a class="vcard__media" href="https://www.instagram.com/reel/DeKaZwBoCtW/" target="_blank" rel="noopener" aria-label="Смотреть ролик о ЛФК">
+          <img src="images/v-lfk.webp" alt="Занятие ЛФК на блочном тренажёре под присмотром специалиста" width="360" height="640" loading="lazy">
+          <span class="vcard__play" aria-hidden="true"></span>
+        </a>
+        <h3>Что такое ЛФК</h3>
+        <p>Упражнения для восстановления подвижности после травм, операций и при болях в спине.</p>
+      </article>
+      <article class="vcard" data-reveal data-file="videos/laser.mp4">
+        <a class="vcard__media" href="https://www.instagram.com/reel/DTUpeF4iNTO/" target="_blank" rel="noopener" aria-label="Смотреть ролик о лазеротерапии">
+          <img src="images/v-laser.webp" alt="Процедура высокоинтенсивной лазеротерапии" width="360" height="640" loading="lazy">
+          <span class="vcard__play" aria-hidden="true"></span>
+        </a>
+        <h3>Лазеротерапия</h3>
+        <p>Как проходит процедура на аппарате высокоинтенсивного лазера.</p>
+      </article>
     </div>
     <a class="link-arrow" data-reveal href="https://www.instagram.com/allabergen_altaevich/" target="_blank" rel="noopener">Все видео в Instagram <i aria-hidden="true">→</i></a>
   </div>
@@ -241,11 +263,33 @@
         <li data-reveal><strong>Внимание и чистота</strong>Отмечают вежливый персонал, чистые кабинеты и новое оборудование.</li>
         <li data-reveal><strong>Удобная запись</strong>Записывают на подходящее время, приём идёт без очереди.</li>
       </ul>
-      <p class="rev__dist" data-reveal>Из 66 отзывов: 62 с оценкой «пять», 1 с «четвёркой», 1 с «тройкой», 2 с «единицей». Мы не копируем чужие тексты на сайт, все отзывы, включая критические, открыты в 2ГИС.</p>
-      <div class="hero__btns" data-reveal>
-        <a class="btn btn--ghost" href="https://2gis.kz/petropavlovsk/firm/70000001054442229/tab/reviews" target="_blank" rel="noopener">Читать в 2ГИС</a>
-        <a class="btn btn--ghost" href="https://www.instagram.com/allabergen_altaevich/" target="_blank" rel="noopener">Отзывы в Instagram</a>
-      </div>
+      <p class="rev__dist" data-reveal>Из 66 отзывов: 62 с оценкой «пять», 1 с «четвёркой», 1 с «тройкой», 2 с «единицей».</p>
+    </div>
+  </div>
+
+  <!-- Реальные отзывы из 2ГИС в кратком пересказе: дословные тексты принадлежат авторам, полные версии по ссылке ниже. -->
+  <div class="rv" data-reveal aria-label="Отзывы клиентов из 2ГИС в кратком пересказе">
+    <ul class="rv__row">
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Прошла курс массажа, спина перестала беспокоить. Теперь занимается ЛФК. Отмечает чистый светлый зал и новое оборудование.</p><small>2ГИС, октябрь 2026</small></li>
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Ходит в центр много лет с проблемами позвоночника. Ценит комплексный подход: мануальная терапия, иглоукалывание, магнитотерапия.</p><small>2ГИС, сентябрь 2026</small></li>
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Записали на удобное время. Сеанс длился около часа, в кабинетах чисто, специалист всё время спрашивал о самочувствии.</p><small>2ГИС, март 2026</small></li>
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Проходил реабилитацию после травм. Благодарит за восстановление мышц и отмечает большой выбор физиоаппаратов.</p><small>2ГИС, февраль 2026</small></li>
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Приходит на курс каждую весну и осень: массаж, физиопроцедуры, хиджама. Довольна вниманием и уровнем работы.</p><small>2ГИС, сентябрь 2026</small></li>
+    </ul>
+    <ul class="rv__row rv__row--back">
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Обратилась с пяточной шпорой по совету знакомой. Пишет, что стало легче уже после первого сеанса.</p><small>2ГИС, сентябрь 2025</small></li>
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Долго мучили головные боли, обошёл нескольких врачей. После пяти сеансов в центре, по его словам, боли ушли.</p><small>2ГИС, октябрь 2024</small></li>
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Была дважды: с болью в пояснице после родов и с межрёберной болью. Оба раза осталась довольна результатом курса.</p><small>2ГИС, ноябрь 2025</small></li>
+      <li><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Впервые пришла на массаж и к мануальной терапии относилась скептически. После сеанса почувствовала лёгкость в спине.</p><small>2ГИС, февраль 2024</small></li>
+      <li><span class="stars" aria-label="Оценка 4 из 5">★★★★<i>★</i></span><p>Знает специалиста больше десяти лет. Отмечает, что он постоянно учится и повышает квалификацию.</p><small>2ГИС, сентябрь 2026</small></li>
+    </ul>
+  </div>
+
+  <div class="wrap rv__foot">
+    <p class="rev__dist" data-reveal>Это краткий пересказ реальных отзывов: личный опыт авторов, результат у каждого свой. Полные тексты, включая критические, открыты в 2ГИС.</p>
+    <div class="hero__btns" data-reveal>
+      <a class="btn btn--ghost" href="https://2gis.kz/petropavlovsk/firm/70000001054442229/tab/reviews" target="_blank" rel="noopener">Все отзывы в 2ГИС</a>
+      <a class="btn btn--ghost" href="https://www.instagram.com/allabergen_altaevich/" target="_blank" rel="noopener">Отзывы в Instagram</a>
     </div>
   </div>
 </section>
@@ -344,6 +388,7 @@
       <a href="https://www.instagram.com/allabergen_altaevich/" target="_blank" rel="noopener">Instagram</a>
       <a href="privacy.html">Политика конфиденциальности</a>
     </nav>
+    <p class="footer__mark" id="mark" aria-hidden="true">Allabergen Altaevich</p>
     <p class="footer__legal">Имеются противопоказания. Необходима консультация специалиста. Фотографии: карточка центра в 2ГИС. <!-- ЗАМЕНИТЬ: данные ИП/ТОО и номер лицензии (если требуется), только реальные. --></p>
   </div>
 </footer>
